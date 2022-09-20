@@ -59,4 +59,5 @@ dependencies {
     implementation(libs.androidx.swipeToRefresh)
     implementation(libs.google.dagger)
     kapt(libs.google.daggerCompiler)
+    implementation(libs.androidx.fragment)
 }

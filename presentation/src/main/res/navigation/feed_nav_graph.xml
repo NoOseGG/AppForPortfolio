@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.example.appforportfolio.ui.feed.FeedFragment"
-        android:label="FeedFragment"
+        android:label="@string/list_of_characters"
         tools:layout="@layout/fragment_feed"/>
 </navigation>

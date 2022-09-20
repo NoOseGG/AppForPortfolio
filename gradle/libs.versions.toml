@@ -23,6 +23,7 @@ coil = "2.2.1"
 coroutines = "1.6.1"
 lifecycle = "2.6.0-alpha02"
 swipeToRefresh = "1.1.0"
+fragment = "1.2.5"
 
 [libraries]
 
@@ -47,3 +48,4 @@ jetbrains-coroutines = {module = "org.jetbrains.kotlinx:kotlinx-coroutines-andro
 lifecycle-runtime = {module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle"}
 lifecycle-viewModel = {module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle"}
 androidx-swipeToRefresh = {module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipeToRefresh"}
+androidx-fragment = {module = "androidx.fragment:fragment-ktx", version.ref = "fragment"}
