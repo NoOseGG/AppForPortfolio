@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
-typealias Infate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
+typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
-class BaseFragment<Binding : ViewBinding>(
-    private val inflate: Infate<Binding>
+abstract class BaseFragment<Binding : ViewBinding>(
+    private val inflate: Inflate<Binding>
 ): Fragment() {
 
     private var _binding: Binding? = null
