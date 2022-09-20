@@ -32,9 +32,15 @@ android {
     kotlinOptions {
         jvmTarget = libs.versions.jvmTarget.get()
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+
+    implementation(project(":domain"))
+    implementation(project(":data"))
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
@@ -51,4 +57,7 @@ dependencies {
     implementation(libs.lifecycle.runtime)
     implementation(libs.lifecycle.viewModel)
     implementation(libs.androidx.swipeToRefresh)
+    implementation(libs.google.dagger)
+    kapt(libs.google.daggerCompiler)
+    implementation(libs.androidx.fragment)
 }
