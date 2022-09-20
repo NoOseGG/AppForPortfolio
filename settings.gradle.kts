@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-enableFeaturePreview "VERSION_CATALOGS"
+enableFeaturePreview("VERSION_CATALOGS")
 rootProject.name = "AppForPortfolio"
-include ':app'
+include(":presentation")
