@@ -11,17 +11,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 class NetworkModule {
 
     @Provides
-    private fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient().newBuilder().build()
     }
 
     @Provides
-    private fun provideGsonConverter(): GsonConverterFactory {
+    fun provideGsonConverter(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
 
     @Provides
-    private fun provideRetrofit(
+    fun provideRetrofit(
         okHttpClient: OkHttpClient,
         gsonConverter: GsonConverterFactory
     ): Retrofit {

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/favourites_nav_graph"
+        android:title="@string/favourites"
+        android:icon="@drawable/ic_favourites"
+        android:orderInCategory="1"/>
+
+    <item
+        android:id="@+id/feed_nav_graph"
+        android:title="@string/list"
+        android:icon="@drawable/ic_feed"
+        android:orderInCategory="2"/>
+
+
+    <item
+        android:id="@+id/settings_nav_graph"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_settings"
+        android:orderInCategory="3"/>
+
+</menu>

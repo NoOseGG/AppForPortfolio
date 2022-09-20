@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppForPortfolio</string>
+
+    <string name="list">List</string>
+    <string name="favourites">Favourites</string>
+    <string name="settings">Settings</string>
 </resources>
