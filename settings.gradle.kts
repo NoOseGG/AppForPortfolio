@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 enableFeaturePreview("VERSION_CATALOGS")
 rootProject.name = "AppForPortfolio"
 include(":presentation")
+include(":domain")
