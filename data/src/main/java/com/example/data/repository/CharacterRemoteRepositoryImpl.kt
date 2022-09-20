@@ -3,8 +3,9 @@ package com.example.data.repository
 import com.example.data.retrofit.RickAndMortyService
 import com.example.domain.model.Characters
 import com.example.domain.repository.CharacterRemoteRepository
+import javax.inject.Inject
 
-class CharacterRemoteRepositoryImpl(
+class CharacterRemoteRepositoryImpl @Inject constructor(
     private val rickAndMortyService: RickAndMortyService
 ) : CharacterRemoteRepository {
 
