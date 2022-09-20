@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -39,6 +41,14 @@ dependencies {
     implementation(libs.google.material)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.test.junit)
-    androidTestImplementation(libs.test.ext.junit)
-    androidTestImplementation(libs.test.expresso.core)
+    androidTestImplementation(libs.test.extJunit)
+    androidTestImplementation(libs.test.expressoCore)
+
+    implementation(libs.androidx.navigationFragment)
+    implementation(libs.androidx.navigationUi)
+    implementation(libs.io.coil)
+    implementation(libs.jetbrains.coroutines)
+    implementation(libs.lifecycle.runtime)
+    implementation(libs.lifecycle.viewModel)
+    implementation(libs.androidx.swipeToRefresh)
 }
