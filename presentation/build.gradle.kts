@@ -61,4 +61,5 @@ dependencies {
     kapt(libs.google.daggerCompiler)
     implementation(libs.androidx.fragment)
     implementation(libs.circularImage)
+    implementation(libs.androidx.paging3)
 }
