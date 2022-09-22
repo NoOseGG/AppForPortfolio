@@ -60,4 +60,5 @@ dependencies {
     implementation(libs.google.dagger)
     kapt(libs.google.daggerCompiler)
     implementation(libs.androidx.fragment)
+    implementation(libs.circularImage)
 }

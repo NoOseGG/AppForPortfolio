@@ -7,4 +7,11 @@
     <string name="list_of_characters">List of Characters</string>
     <string name="favourites_character">Favourites Character</string>
     <string name="Settings">Settings</string>
+
+    <string name="search_view_query_hint">Введите имя персонажа...</string>
+    <string name="unknown">Unknown</string>
+    <string name="mythological">Mythological</string>
+    <string name="alien">Alien</string>
+    <string name="human">Human</string>
+    <string name="all">All</string>
 </resources>
