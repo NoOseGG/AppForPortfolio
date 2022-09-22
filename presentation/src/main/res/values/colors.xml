@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--Search view-->
+    <color name="search_view_background">#F7F7F8</color>
+
+    <!--Item Character-->
+    <color name="card_view_background">#FFFFFF</color>
+    <color name="tv_character_name_color">#000000</color>
 </resources>

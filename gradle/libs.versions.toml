@@ -25,6 +25,7 @@ lifecycle = "2.6.0-alpha02"
 swipeToRefresh = "1.1.0"
 fragment = "1.2.5"
 gson = "2.9.1"
+circularImage = "4.3.0"
 
 [libraries]
 
@@ -51,3 +52,4 @@ lifecycle-viewModel = {module = "androidx.lifecycle:lifecycle-viewmodel-ktx", ve
 androidx-swipeToRefresh = {module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipeToRefresh"}
 androidx-fragment = {module = "androidx.fragment:fragment-ktx", version.ref = "fragment"}
 google-gson = {module = "com.google.code.gson:gson", version.ref = "gson"}
+circularImage = {module = "com.mikhaellopez:circularimageview", version.ref = "circularImage"}
