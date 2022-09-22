@@ -1,11 +1,12 @@
 package com.example.data.di
 
 import com.example.data.retrofit.RickAndMortyService
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
 @Module
 class NetworkModule {
@@ -16,25 +17,14 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideGsonConverter(): GsonConverterFactory {
-        return GsonConverterFactory.create()
-    }
-
-    @Provides
-    fun provideRetrofit(
+    fun provideRickAndMortyService(
         okHttpClient: OkHttpClient,
-        gsonConverter: GsonConverterFactory
-    ): Retrofit {
+    ): RickAndMortyService {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(gsonConverter)
             .build()
-    }
-
-    @Provides
-    fun provideRickAndMortyService(retrofit: Retrofit): RickAndMortyService {
-        return retrofit.create(RickAndMortyService::class.java)
+            .create(RickAndMortyService::class.java)
     }
 
     companion object {

@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.appforportfolio.databinding.ActivityMainBinding
+import com.example.appforportfolio.di.AppComponent
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +19,9 @@ class MainActivity : AppCompatActivity() {
             .navController
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

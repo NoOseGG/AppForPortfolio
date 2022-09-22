@@ -47,6 +47,7 @@ dependencies {
 
     implementation(libs.squareup.retrofit)
     implementation(libs.squareup.converterGson)
+    implementation(libs.google.gson)
     implementation(libs.jetbrains.coroutines)
     implementation(libs.google.dagger)
     kapt(libs.google.daggerCompiler)

@@ -9,7 +9,7 @@ import dagger.Module
 interface RepositoryModule {
 
     @Binds
-    fun provideCharacterRemoteRepository(
+    fun bindCharacterRemoteRepository(
         impl: CharacterRemoteRepositoryImpl
     ): CharacterRemoteRepository
 }
