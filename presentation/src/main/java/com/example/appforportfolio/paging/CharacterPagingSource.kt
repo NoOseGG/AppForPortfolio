@@ -23,7 +23,7 @@ class CharacterPagingSource (
         val pageIndex = params.key ?: 1
 
 
-        return when(val characters = characters(pageIndex, species, searchBy)) {
+        return when(val characters = getCharacters(pageIndex, species, searchBy)) {
             is LceState.Content -> {
                 LoadResult.Page(
                     data = characters.value,
@@ -37,7 +37,7 @@ class CharacterPagingSource (
         }
     }
 
-    private suspend fun characters(page: Int, species: String, searchBy: String): LceState<List<Character>> {
+    private suspend fun getCharacters(page: Int, species: String, searchBy: String): LceState<List<Character>> {
         val characters = getCharactersUseCase.getCharacters(page, species, searchBy)
         characters.onSuccess {
             if(_pageCount == null) _pageCount = it.info.pages

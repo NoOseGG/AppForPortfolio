@@ -23,12 +23,6 @@ class FeedViewModel(
         CharacterPagingSource(getCharactersUseCase, species, searchBy)
     }.flow.cachedIn(viewModelScope)
 
-    val charactersFlow = MutableSharedFlow<List<Character>>(
-        replay = 1,
-        extraBufferCapacity = 1,
-        onBufferOverflow = BufferOverflow.DROP_OLDEST
-    )
-
     fun setSpecies(species: String) {
         this.species = species
     }

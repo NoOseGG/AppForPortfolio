@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
 @Module
@@ -18,11 +19,12 @@ class NetworkModule {
 
     @Provides
     fun provideRickAndMortyService(
-        okHttpClient: OkHttpClient,
+        okHttpClient: OkHttpClient
     ): RickAndMortyService {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(RickAndMortyService::class.java)
     }
