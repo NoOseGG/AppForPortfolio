@@ -4,13 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.domain.model.CharacterDetails
 import com.example.domain.usecase.GetCharacterUseCase
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.flow
-import javax.inject.Inject
 
-class DetailsViewModel(
-    private val characterId: Int,
+class DetailsViewModel @AssistedInject constructor(
+    @Assisted private val characterId: Int,
     private val getCharacterUseCase: GetCharacterUseCase,
 ) : ViewModel() {
 
@@ -30,24 +32,20 @@ class DetailsViewModel(
         )
     }
 
+    @AssistedFactory
+    interface Factory {
+        fun create(characterId: Int): DetailsViewModel
+    }
 
-    class Factory(
-        private val characterId: Int,
-        private val getCharacterUseCase: GetCharacterUseCase
-    ): ViewModelProvider.Factory {
+    @Suppress("UNCHECKED_CAST")
+    companion object {
+        fun provideFactory(
+            assistedFactory: Factory,
+            characterId: Int
+        ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
 
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            require(modelClass == DetailsViewModel::class.java)
-            return DetailsViewModel(characterId, getCharacterUseCase) as T
-        }
-
-        class Factory @Inject constructor(
-            val getCharacterUseCase: GetCharacterUseCase
-        ) {
-
-            fun create(characterId: Int): DetailsViewModel.Factory {
-                return DetailsViewModel.Factory(characterId, getCharacterUseCase)
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return assistedFactory.create(characterId) as T
             }
         }
     }

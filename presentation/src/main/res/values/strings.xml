@@ -14,4 +14,11 @@
     <string name="alien">Alien</string>
     <string name="human">Human</string>
     <string name="all">All</string>
+    <string name="details">Details</string>
+
+    <!--Fragment Details-->
+    <string name="fragment_details_status">Status: %1$s</string>
+    <string name="fragment_details_type">Type: %1$s</string>
+    <string name="fragment_details_gender">Gender: %1$s</string>
+
 </resources>

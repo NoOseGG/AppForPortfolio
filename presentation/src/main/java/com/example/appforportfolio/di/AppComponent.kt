@@ -1,5 +1,6 @@
 package com.example.appforportfolio.di
 
+import com.example.appforportfolio.ui.details.DetailsFragment
 import com.example.appforportfolio.ui.feed.FeedFragment
 import com.example.data.di.DataModule
 import com.example.data.di.NetworkModule
@@ -10,4 +11,6 @@ import dagger.Component
 interface AppComponent {
 
     fun inject(feedFragment: FeedFragment)
+
+    fun inject(detailsFragment: DetailsFragment)
 }

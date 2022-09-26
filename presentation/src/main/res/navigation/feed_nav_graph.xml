@@ -9,5 +9,18 @@
         android:id="@+id/feedFragment"
         android:name="com.example.appforportfolio.ui.feed.FeedFragment"
         android:label="@string/list_of_characters"
-        tools:layout="@layout/fragment_feed"/>
+        tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/action_feedFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.appforportfolio.ui.details.DetailsFragment"
+        android:label="@string/details"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="characterId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
