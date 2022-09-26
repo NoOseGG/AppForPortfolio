@@ -7,9 +7,10 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.appforportfolio.ServiceLocator
 import com.example.appforportfolio.databinding.FragmentFeedBinding
-import com.example.appforportfolio.di.DaggerAppComponent
 import com.example.appforportfolio.ui.BaseFragment
 import com.example.kodetrainee.adapter.CharacterAdapter
 import com.google.android.material.tabs.TabLayout
@@ -27,16 +28,14 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
     }
 
     private val adapterCharacter by lazy {
-        CharacterAdapter() {
-
+        CharacterAdapter() { character ->
+            val action = FeedFragmentDirections.actionFeedFragmentToDetailsFragment(character.id)
+            findNavController().navigate(action)
         }
     }
 
-
-
     override fun onAttach(context: Context) {
-        val appComponent = DaggerAppComponent.create()
-        appComponent.inject(this)
+        ServiceLocator.appComponent.inject(this)
         super.onAttach(context)
     }
 
