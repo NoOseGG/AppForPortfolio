@@ -42,9 +42,6 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        println("FACTORY: $feedViewModelFactory")
-        println("ViewModel: $feedViewModel")
-
         initialRecyclerView()
         setSearchViewListener()
         setSwipeRefreshListener()
@@ -60,6 +57,7 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
         with(binding) {
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.scrollToPosition(0)
             recyclerView.adapter = adapterCharacter
         }
     }
@@ -113,7 +111,6 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
             override fun onTabReselected(tab: TabLayout.Tab?) {
                 if(tab?.position != null) checkSpecies(tab.position)
             }
-
         })
     }
 
