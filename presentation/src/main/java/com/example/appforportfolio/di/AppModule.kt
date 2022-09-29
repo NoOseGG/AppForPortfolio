@@ -4,6 +4,8 @@ import android.content.Context
 import com.example.appforportfolio.manager.SharedPrefsManager
 import dagger.Module
 import dagger.Provides
+import javax.inject.Scope
+import javax.inject.Singleton
 
 @Module
 class AppModule(
