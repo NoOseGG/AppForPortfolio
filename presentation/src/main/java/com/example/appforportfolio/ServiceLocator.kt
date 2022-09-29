@@ -1,11 +1,17 @@
 package com.example.appforportfolio
 
+import android.content.Context
 import com.example.appforportfolio.di.AppComponent
+import com.example.appforportfolio.di.AppModule
 import com.example.appforportfolio.di.DaggerAppComponent
 
-object ServiceLocator {
+class ServiceLocator(
+    private val context: Context
+) {
 
     val appComponent: AppComponent by lazy {
-        DaggerAppComponent.create()
+        DaggerAppComponent.builder()
+            .appModule(AppModule(context))
+            .build()
     }
 }
