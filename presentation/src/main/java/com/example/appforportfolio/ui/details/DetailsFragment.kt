@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -69,6 +72,13 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
             tvStatus.text = getString(R.string.fragment_details_status, characterDetails.status)
             tvType.text = getString(R.string.fragment_details_type, characterDetails.type)
             tvGender.text = getString(R.string.fragment_details_gender, characterDetails.gender)
+            if (characterDetails.isFavourites) {
+                imgFavourites.setImageDrawable(
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_favourites_true)
+                )
+            }
+
+            println(characterDetails.isFavourites)
         }
     }
 

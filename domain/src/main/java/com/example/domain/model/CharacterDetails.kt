@@ -11,7 +11,7 @@ data class CharacterDetails(
     val location: Location,
     val image: String,
     val created: String,
-    val isFavourites: Boolean = false
+    val isFavourites: Boolean = true
 )
 
 data class Origin(
