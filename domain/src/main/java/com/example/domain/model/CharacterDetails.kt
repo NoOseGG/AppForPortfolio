@@ -7,19 +7,8 @@ data class CharacterDetails(
     val species: String,
     val type: String,
     val gender: String,
-    val origin: Origin,
-    val location: Location,
     val image: String,
     val created: String,
     val isFavourites: Boolean = true
 )
 
-data class Origin(
-    val name: String,
-    val url: String
-)
-
-data class Location(
-    val name: String,
-    val url: String
-)

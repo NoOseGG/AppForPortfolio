@@ -7,8 +7,6 @@ data class CharacterDetailsDTO(
     val species: String,
     val type: String,
     val gender: String,
-    val origin: Origin,
-    val location: Location,
     val image: String,
     val created: String,
 ) {
@@ -20,8 +18,6 @@ data class CharacterDetailsDTO(
             species = species,
             type = type,
             gender = gender,
-            origin = origin,
-            location = location,
             image = image,
             created = created,
         )
