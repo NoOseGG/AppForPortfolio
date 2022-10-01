@@ -7,5 +7,10 @@
     <!--fragment settings-->
     <dimen name="fragment_settings_text_size">24sp</dimen>
     <dimen name="margin_medium">12dp</dimen>
+    <dimen name="item_character_margin">16dp</dimen>
+    <dimen name="item_character_padding">8dp</dimen>
+    <dimen name="item_character_avatar_size">76dp</dimen>
+    <dimen name="item_character_header_text_size">16sp</dimen>
+    <dimen name="item_character_content_text_size">13sp</dimen>
 
 </resources>

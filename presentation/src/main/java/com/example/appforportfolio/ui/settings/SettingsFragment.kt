@@ -42,13 +42,15 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(
 
     private fun setSwitchNightThemeListener() {
         binding.switchNightTheme.setOnCheckedChangeListener { compoundButton, nightMode ->
-            if(nightMode) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                sharedPreferences.nightMode = DARK
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                sharedPreferences.nightMode = LIGHT
-            }
+            if(nightMode)
+                changeNightMode(AppCompatDelegate.MODE_NIGHT_YES, DARK)
+            else
+                changeNightMode(AppCompatDelegate.MODE_NIGHT_NO, LIGHT)
         }
+    }
+
+    private fun changeNightMode(nightMode: Int, sharedPrefMode: NightMode) {
+        AppCompatDelegate.setDefaultNightMode(nightMode)
+        sharedPreferences.nightMode = sharedPrefMode
     }
 }
