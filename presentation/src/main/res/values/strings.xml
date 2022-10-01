@@ -21,4 +21,7 @@
     <string name="fragment_details_type">Type: %1$s</string>
     <string name="fragment_details_gender">Gender: %1$s</string>
 
+    <!--Fragment Settings-->
+    <string name="fragment_settings_night_theme">Night Theme</string>
+
 </resources>

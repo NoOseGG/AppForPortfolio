@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="16dp"
-    android:backgroundTint="@color/card_view_background"
-    android:padding="8dp">
+    android:layout_margin="@dimen/item_character_margin"
+    android:backgroundTint="?colorPrimary"
+    android:padding="@dimen/item_character_padding">
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/img_avatar"
-        android:layout_width="76dp"
-        android:layout_height="76dp"
+        android:layout_width="@dimen/item_character_avatar_size"
+        android:layout_height="@dimen/item_character_avatar_size"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,12 +22,12 @@
         android:id="@+id/tv_character_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/item_character_margin"
         tools:text="Rick"
         app:layout_constraintVertical_chainStyle="packed"
         android:textStyle="bold"
-        android:textColor="@color/tv_character_name_color"
-        android:textSize="16sp"
+        android:textColor="?colorOnPrimary"
+        android:textSize="@dimen/item_character_header_text_size"
         app:layout_constraintStart_toEndOf="@id/img_avatar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv_character_species"/>
@@ -36,9 +36,9 @@
         android:id="@+id/tv_character_species"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/item_character_margin"
         tools:text="Human"
-        android:textSize="13sp"
+        android:textSize="@dimen/item_character_content_text_size"
         app:layout_constraintStart_toEndOf="@id/img_avatar"
         app:layout_constraintTop_toBottomOf="@id/tv_character_name"
         app:layout_constraintBottom_toBottomOf="parent"/>

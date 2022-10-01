@@ -35,15 +35,13 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
     }
 
     override fun onAttach(context: Context) {
-        ServiceLocator.appComponent.inject(this)
+        val appComponent = ServiceLocator(requireContext()).appComponent
+        appComponent.inject(this)
         super.onAttach(context)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        println("FACTORY: $feedViewModelFactory")
-        println("ViewModel: $feedViewModel")
 
         initialRecyclerView()
         setSearchViewListener()
@@ -60,6 +58,7 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
         with(binding) {
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.scrollToPosition(0)
             recyclerView.adapter = adapterCharacter
         }
     }
@@ -113,7 +112,6 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
             override fun onTabReselected(tab: TabLayout.Tab?) {
                 if(tab?.position != null) checkSpecies(tab.position)
             }
-
         })
     }
 

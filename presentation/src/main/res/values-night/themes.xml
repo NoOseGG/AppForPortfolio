@@ -1,16 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AppForPortfolio" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Base.Dark.Theme.AppForPortfolio" parent="Base.Theme.AppForPortfolio">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/color_primary_dark_theme</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant_dark_theme</item>
+        <item name="colorOnPrimary">@color/color_on_primary_dark_theme</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/color_secondary_dark_theme</item>
+        <item name="colorSecondaryVariant">@color/color_secondary_variant_dark_theme</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.AppForPortfolio" parent="Base.Dark.Theme.AppForPortfolio">
+
     </style>
 </resources>

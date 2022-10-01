@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/constrain_layout_top_background_color"
+        android:background="?colorPrimaryVariant"
         android:padding="12dp">
 
         <ImageView
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textColor="@color/tv_character_details_content_color"
+            android:textColor="?colorOnPrimary"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/img_character_details_avatar"
@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textColor="@color/tv_character_details_content_color"
+            android:textColor="?colorOnPrimary"
             android:textSize="16sp"
             app:layout_constraintTop_toTopOf="@id/img_status"
             app:layout_constraintStart_toEndOf="@id/img_status"
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textColor="@color/tv_character_details_content_color"
+            android:textColor="?colorOnPrimary"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/img_type"
             app:layout_constraintTop_toTopOf="@id/img_type"
@@ -122,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textColor="@color/tv_character_details_content_color"
+            android:textColor="?colorOnPrimary"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/img_gender"
             app:layout_constraintTop_toTopOf="@id/img_gender"
