@@ -34,6 +34,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
     private val detailsViewModel: DetailsViewModel by viewModels {
         DetailsViewModel.provideFactory(factory, args.characterId)
     }
+    lateinit var characterDetails: CharacterDetails
 
     override fun onAttach(context: Context) {
         val appComponent = ServiceLocator(requireContext()).appComponent
@@ -46,10 +47,16 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
 
         setOnBackArrowListener()
         setObserveViewModel()
+
+
+        binding.imgFavourites.setOnClickListener {
+            detailsViewModel.onFavouriteClicked()
+        }
     }
 
     private fun setObserveViewModel() {
         detailsViewModel.characterDetails.onEach { characterDetails ->
+            this.characterDetails = characterDetails
             updateUi(characterDetails)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
@@ -75,6 +82,10 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
             if (characterDetails.isFavourites) {
                 imgFavourites.setImageDrawable(
                     AppCompatResources.getDrawable(requireContext(), R.drawable.ic_favourites_true)
+                )
+            } else {
+                imgFavourites.setImageDrawable(
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_favourites_false)
                 )
             }
 

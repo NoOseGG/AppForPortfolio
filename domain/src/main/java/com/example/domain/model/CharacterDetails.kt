@@ -9,6 +9,6 @@ data class CharacterDetails(
     val gender: String,
     val image: String,
     val created: String,
-    val isFavourites: Boolean = true
+    val isFavourites: Boolean = false
 )
 

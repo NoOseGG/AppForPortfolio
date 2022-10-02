@@ -6,6 +6,8 @@ interface CharacterLocaleRepository {
 
     suspend fun getCharacters(): Result<List<CharacterDetails>>
 
+    suspend fun getCharacter(id: Int): Result<CharacterDetails>
+
     suspend fun insertCharacter(characterDetails: CharacterDetails)
 
     suspend fun deleteCharacter(characterDetails: CharacterDetails)
