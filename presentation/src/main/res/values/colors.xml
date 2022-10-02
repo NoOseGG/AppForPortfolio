@@ -10,7 +10,7 @@
 
     <!--Light Theme-->
     <color name="color_primary">#000000</color>
-    <color name="color_primary_variant">#F7F7F8</color>
+    <color name="color_primary_variant">#FFFFFF</color>
     <color name="color_on_primary">#000000</color>
 
     <color name="color_secondary">#000000</color>
@@ -19,7 +19,7 @@
 
     <!--Dark Theme-->
     <color name="color_primary_dark_theme">#FFFFFF</color>
-    <color name="color_primary_variant_dark_theme">#1C1C1C</color>
+    <color name="color_primary_variant_dark_theme">#1E1E20</color>
     <color name="color_on_primary_dark_theme">#FFFFFF</color>
 
     <color name="color_secondary_dark_theme">#FFFFFF</color>

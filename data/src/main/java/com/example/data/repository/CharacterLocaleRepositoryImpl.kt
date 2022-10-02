@@ -1,9 +1,11 @@
 package com.example.data.repository
 
+import com.example.data.mapper.toCharacter
 import com.example.data.mapper.toDomain
 import com.example.data.mapper.toEntity
 import com.example.data.room.CharacterDao
 import com.example.domain.model.CharacterDetails
+import com.example.domain.model.Character
 import com.example.domain.repository.CharacterLocaleRepository
 import javax.inject.Inject
 
@@ -11,10 +13,14 @@ class CharacterLocaleRepositoryImpl @Inject constructor(
 
     private val characterDao: CharacterDao
 ) : CharacterLocaleRepository {
-    override suspend fun getCharacters(): Result<List<CharacterDetails>> {
+    override suspend fun getCharacters(): Result<List<Character>> {
         return kotlin.runCatching {
-            emptyList<CharacterDetails>()
+            val characters = characterDao.getCharacters().map {
+                it.toCharacter()
+            }
+            characters
         }
+
     }
 
     override suspend fun getCharacter(id: Int): Result<CharacterDetails> {

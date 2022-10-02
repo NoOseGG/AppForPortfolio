@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="8dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="@dimen/margin_medium"
+        android:backgroundTint="?colorPrimaryVariant">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/img_avatar"
+                android:layout_width="@dimen/item_character_avatar_size"
+                android:layout_height="@dimen/item_character_avatar_size"
+                android:src="@drawable/ic_launcher_background"
+                app:civ_border_width="0dp"/>
+
+            <TextView
+                android:id="@+id/tv_character_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Rick"
+                android:textStyle="bold"
+                android:textColor="?colorOnPrimary"
+                android:textSize="@dimen/item_character_header_text_size" />
+
+            <TextView
+                android:id="@+id/tv_character_species"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Human"
+                android:textSize="@dimen/item_character_content_text_size" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
