@@ -40,11 +40,11 @@ class FavouritesFragment : BaseFragment<FragmentFavouritesBinding>(
 
         initialRecyclerView()
 
-        favouritesViewModel.characters.onEach {
-            characterAdapter.submitList(it)
+        favouritesViewModel.characters.onEach { characters ->
+            characterAdapter.submitList(characters)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-        favouritesViewModel.error.onEach {
+        favouritesViewModel.error.onEach { error ->
 
         }.launchIn(viewLifecycleOwner.lifecycleScope)
     }

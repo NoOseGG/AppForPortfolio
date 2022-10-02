@@ -12,17 +12,17 @@ class UseCaseModule {
     @Provides
     fun provideGetCharactersUseCase(
         characterRemoteRepository: CharacterRemoteRepository
-    ): GetCharactersUseCase {
+    ): GetCharactersRemoteUseCase {
 
-        return GetCharactersUseCase(characterRemoteRepository)
+        return GetCharactersRemoteUseCase(characterRemoteRepository)
     }
 
     @Provides
     fun provideGetCharacterUseCase(
         characterRemoteRepository: CharacterRemoteRepository
-    ): GetCharacterUseCase {
+    ): GetCharacterRemoteUseCase {
 
-        return GetCharacterUseCase(characterRemoteRepository)
+        return GetCharacterRemoteUseCase(characterRemoteRepository)
     }
 
     @Provides

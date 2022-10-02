@@ -6,9 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.model.CharacterDetails
 import com.example.domain.usecase.DeleteCharacterLocaleUseCase
 import com.example.domain.usecase.GetCharacterLocaleUseCase
-import com.example.domain.usecase.GetCharacterUseCase
+import com.example.domain.usecase.GetCharacterRemoteUseCase
 import com.example.domain.usecase.InsertCharacterLocaleUseCase
-import com.example.kodetrainee.model.LceState
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -19,7 +18,7 @@ import kotlinx.coroutines.launch
 
 class DetailsViewModel @AssistedInject constructor(
     @Assisted private val characterId: Int,
-    private val getCharacterUseCase: GetCharacterUseCase,
+    private val getCharacterRemoteUseCase: GetCharacterRemoteUseCase,
     private val getCharacterLocaleUseCase: GetCharacterLocaleUseCase,
     private val insertCharacterLocaleUseCase: InsertCharacterLocaleUseCase,
     private val deleteCharacterLocaleUseCase: DeleteCharacterLocaleUseCase
@@ -39,26 +38,26 @@ class DetailsViewModel @AssistedInject constructor(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            getCharacterLocaleUseCase(id = characterId).fold(onSuccess = {
-                characterDetails.tryEmit(it)
+            getCharacterLocaleUseCase(id = characterId).fold(onSuccess = { character ->
+                characterDetails.tryEmit(character)
             }, onFailure = {
-                getCharacterUseCase.getCharacter(characterId).fold(onSuccess = {
-                    characterDetails.tryEmit(it)
-                }, onFailure = {
-                    error.tryEmit(it.message.toString())
+                getCharacterRemoteUseCase(characterId).fold(onSuccess = { character ->
+                    characterDetails.tryEmit(character)
+                }, onFailure = { errorMessage ->
+                    error.tryEmit(errorMessage.message.toString())
                 })
             })
         }
 
         favourite.map {
             characterDetails.filterIsInstance<CharacterDetails>().first()
-        }.onEach {
-            if (it.isFavourites) {
-                deleteCharacterLocaleUseCase(it)
+        }.onEach { character ->
+            if (character.isFavourites) {
+                deleteCharacterLocaleUseCase(character)
             } else {
-                insertCharacterLocaleUseCase(it.copy(isFavourites = true))
+                insertCharacterLocaleUseCase(character.copy(isFavourites = true))
             }
-            characterDetails.tryEmit(it.copy(isFavourites = !it.isFavourites))
+            characterDetails.tryEmit(character.copy(isFavourites = !character.isFavourites))
         }.launchIn(viewModelScope)
     }
 

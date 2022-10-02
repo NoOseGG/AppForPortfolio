@@ -15,11 +15,11 @@ class FavouritesViewModel (
 
     val characters = flow {
         getCharactersLocaleUseCase().fold(
-            onSuccess = {
-                emit(it)
+            onSuccess = { characters ->
+                emit(characters)
             },
-            onFailure = {
-                error.tryEmit(it.message.toString())
+            onFailure = { errorMessage ->
+                error.tryEmit(errorMessage.message.toString())
             }
         )
     }
