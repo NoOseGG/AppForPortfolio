@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.appforportfolio.ServiceLocator
 import com.example.appforportfolio.databinding.FragmentFavouritesBinding
@@ -25,7 +26,8 @@ class FavouritesFragment : BaseFragment<FragmentFavouritesBinding>(
     }
     private val characterAdapter by lazy {
         CharacterFavouritesAdapter() {
-
+            val action = FavouritesFragmentDirections.actionFavouritesFragmentToDetailsFragment2(it.id)
+            findNavController().navigate(action)
         }
     }
 
