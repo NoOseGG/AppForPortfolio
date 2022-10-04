@@ -37,8 +37,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
     lateinit var characterDetails: CharacterDetails
 
     override fun onAttach(context: Context) {
-        val appComponent = ServiceLocator(requireContext()).appComponent
-        appComponent.inject(this)
+        ServiceLocator(requireContext()).appComponent.inject(this)
         super.onAttach(context)
     }
 
@@ -52,6 +51,18 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
         binding.imgFavourites.setOnClickListener {
             detailsViewModel.onFavouriteClicked()
         }
+
+        lifecycleScope.launchWhenStarted {
+            detailsViewModel.characterDetails.collect() {
+                println("NICE")
+                updateUi(it)
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        detailsViewModel.init()
     }
 
     private fun setObserveViewModel() {

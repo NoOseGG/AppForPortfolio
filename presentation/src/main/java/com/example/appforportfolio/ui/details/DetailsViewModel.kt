@@ -36,7 +36,7 @@ class DetailsViewModel @AssistedInject constructor(
         extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_LATEST
     )
 
-    init {
+    fun init() {
         viewModelScope.launch(Dispatchers.IO) {
             getCharacterLocaleUseCase(id = characterId).fold(onSuccess = { character ->
                 characterDetails.tryEmit(character)

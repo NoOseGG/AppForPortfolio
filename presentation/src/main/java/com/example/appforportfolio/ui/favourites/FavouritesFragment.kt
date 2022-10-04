@@ -3,6 +3,7 @@ package com.example.appforportfolio.ui.favourites
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.appforportfolio.ServiceLocator
 import com.example.appforportfolio.databinding.FragmentFavouritesBinding
 import com.example.appforportfolio.ui.BaseFragment
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -32,8 +34,7 @@ class FavouritesFragment : BaseFragment<FragmentFavouritesBinding>(
     }
 
     override fun onAttach(context: Context) {
-        val appComponent = ServiceLocator(requireContext()).appComponent
-        appComponent.inject(this)
+        ServiceLocator(requireContext()).appComponent.inject(this)
         super.onAttach(context)
     }
 
