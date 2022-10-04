@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -31,10 +34,10 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
     private val detailsViewModel: DetailsViewModel by viewModels {
         DetailsViewModel.provideFactory(factory, args.characterId)
     }
+    lateinit var characterDetails: CharacterDetails
 
     override fun onAttach(context: Context) {
-        val appComponent = ServiceLocator(requireContext()).appComponent
-        appComponent.inject(this)
+        ServiceLocator(requireContext()).appComponent.inject(this)
         super.onAttach(context)
     }
 
@@ -43,10 +46,28 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
 
         setOnBackArrowListener()
         setObserveViewModel()
+
+
+        binding.imgFavourites.setOnClickListener {
+            detailsViewModel.onFavouriteClicked()
+        }
+
+        lifecycleScope.launchWhenStarted {
+            detailsViewModel.characterDetails.collect() {
+                println("NICE")
+                updateUi(it)
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        detailsViewModel.init()
     }
 
     private fun setObserveViewModel() {
         detailsViewModel.characterDetails.onEach { characterDetails ->
+            this.characterDetails = characterDetails
             updateUi(characterDetails)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
@@ -69,6 +90,17 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
             tvStatus.text = getString(R.string.fragment_details_status, characterDetails.status)
             tvType.text = getString(R.string.fragment_details_type, characterDetails.type)
             tvGender.text = getString(R.string.fragment_details_gender, characterDetails.gender)
+            if (characterDetails.isFavourites) {
+                imgFavourites.setImageDrawable(
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_favourites_true)
+                )
+            } else {
+                imgFavourites.setImageDrawable(
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_favourites_false)
+                )
+            }
+
+            println(characterDetails.isFavourites)
         }
     }
 

@@ -6,21 +6,18 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import com.example.domain.model.Character
-import com.example.domain.usecase.GetCharactersUseCase
+import com.example.domain.usecase.GetCharactersRemoteUseCase
 import com.example.kodetrainee.paging.CharacterPagingSource
-import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.MutableSharedFlow
 import javax.inject.Inject
 
 class FeedViewModel(
-    private val getCharactersUseCase: GetCharactersUseCase
+    private val getCharactersRemoteUseCase: GetCharactersRemoteUseCase
 ) : ViewModel() {
 
     private var species = ""
     private var searchBy = ""
     val characters = Pager(PagingConfig( pageSize = 20, enablePlaceholders = true, initialLoadSize = 20)) {
-        CharacterPagingSource(getCharactersUseCase, species, searchBy)
+        CharacterPagingSource(getCharactersRemoteUseCase, species, searchBy)
     }.flow.cachedIn(viewModelScope)
 
     fun setSpecies(species: String) {
@@ -32,13 +29,13 @@ class FeedViewModel(
     }
 
     class Factory @Inject constructor(
-        private val getCharactersUseCase: GetCharactersUseCase
+        private val getCharactersRemoteUseCase: GetCharactersRemoteUseCase
     ) : ViewModelProvider.Factory {
 
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             require(modelClass == FeedViewModel::class.java)
-            return FeedViewModel(getCharactersUseCase) as T
+            return FeedViewModel(getCharactersRemoteUseCase) as T
         }
     }
 }

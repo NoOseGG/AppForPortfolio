@@ -51,4 +51,6 @@ dependencies {
     implementation(libs.jetbrains.coroutines)
     implementation(libs.google.dagger)
     kapt(libs.google.daggerCompiler)
+    implementation(libs.androidx.room)
+    kapt(libs.androidx.roomCompiler)
 }

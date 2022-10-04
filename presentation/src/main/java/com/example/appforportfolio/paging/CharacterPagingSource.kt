@@ -3,11 +3,11 @@ package com.example.kodetrainee.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.domain.model.Character
-import com.example.domain.usecase.GetCharactersUseCase
+import com.example.domain.usecase.GetCharactersRemoteUseCase
 import com.example.kodetrainee.model.LceState
 
 class CharacterPagingSource(
-    private val getCharactersUseCase: GetCharactersUseCase,
+    private val getCharactersRemoteUseCase: GetCharactersRemoteUseCase,
     private val species: String,
     private val searchBy: String
 ) : PagingSource<Int, Character>() {
@@ -42,7 +42,7 @@ class CharacterPagingSource(
         species: String,
         searchBy: String
     ): LceState<List<Character>> {
-        val characters = getCharactersUseCase.getCharacters(page, species, searchBy)
+        val characters = getCharactersRemoteUseCase(page, species, searchBy)
         characters
             .onSuccess {
                 if (_pageCount == null) _pageCount = it.info.pages

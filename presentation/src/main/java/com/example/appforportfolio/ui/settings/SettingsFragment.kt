@@ -20,8 +20,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(
     lateinit var sharedPreferences: SharedPrefsManager
 
     override fun onAttach(context: Context) {
-        val appComponent = ServiceLocator(requireContext()).appComponent
-        appComponent.inject(this)
+        ServiceLocator(requireContext()).appComponent.inject(this)
         super.onAttach(context)
     }
 

@@ -35,8 +35,7 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(FragmentFeedBinding::infl
     }
 
     override fun onAttach(context: Context) {
-        val appComponent = ServiceLocator(requireContext()).appComponent
-        appComponent.inject(this)
+        ServiceLocator(requireContext()).appComponent.inject(this)
         super.onAttach(context)
     }
 

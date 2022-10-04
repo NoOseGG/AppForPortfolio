@@ -1,6 +1,7 @@
 package com.example.data.retrofit
 
 import com.example.domain.model.CharacterDetails
+import com.example.domain.model.CharacterDetailsDTO
 import com.example.domain.model.Characters
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -18,5 +19,5 @@ interface RickAndMortyService {
     @GET("character/{id}")
     suspend fun getCharacter(
         @Path("id") id: Int
-    ): CharacterDetails
+    ): CharacterDetailsDTO
 }

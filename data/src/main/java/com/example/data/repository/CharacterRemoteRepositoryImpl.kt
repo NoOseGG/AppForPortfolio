@@ -23,7 +23,7 @@ class CharacterRemoteRepositoryImpl @Inject constructor(
 
     override suspend fun getCharacter(id: Int): Result<CharacterDetails> {
         return runCatching {
-            rickAndMortyService.getCharacter(id)
+            rickAndMortyService.getCharacter(id).toCharacterDetails()
         }
     }
 
