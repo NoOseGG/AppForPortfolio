@@ -5,6 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.7.20-RC" apply false
     id("androidx.navigation.safeargs.kotlin") version "2.5.2" apply false
     id("org.jetbrains.kotlin.jvm") version "1.7.20-RC" apply false
+    id("de.mannodermaus.android-junit5") version "1.8.2.1" apply false
 }
 
 tasks.register<Delete>("clean"){

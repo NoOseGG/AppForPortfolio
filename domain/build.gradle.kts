@@ -4,6 +4,15 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+
+    testImplementation(libs.test.junit.api)
+    testImplementation(libs.test.junit.params)
+    testRuntimeOnly(libs.test.junit.engine)
+    testImplementation(libs.test.mockk)
+
 }

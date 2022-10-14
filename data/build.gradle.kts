@@ -41,9 +41,6 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.google.material)
-    testImplementation(libs.test.junit)
-    androidTestImplementation(libs.test.extJunit)
-    androidTestImplementation(libs.test.expressoCore)
 
     implementation(libs.squareup.retrofit)
     implementation(libs.squareup.converterGson)

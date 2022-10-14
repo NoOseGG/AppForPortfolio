@@ -11,9 +11,8 @@ androidx-core = "1.9.0"
 androidx-appcompat = "1.5.1"
 androidx-constraintlayout = "2.1.4"
 google-material = "1.6.1"
-junit = "4.13.2"
-test-ext-junit = "1.1.3"
-test-expresso-core = "3.4.0"
+junit5 = "5.9.1"
+mockk = "1.13.2"
 
 androidx-navigation = "2.5.2"
 retrofit = "2.9.0"
@@ -34,9 +33,11 @@ androidx-core = {module = "androidx.core:core-ktx", version.ref = "androidx-core
 androidx-appcompat = {module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat"}
 androidx-constraintlayout = {module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout"}
 google-material = {module = "com.google.android.material:material", version.ref = "google-material"}
-test-junit = {module = "junit:junit", version.ref = "junit"}
-test-extJunit = {module = "androidx.test.ext:junit", version.ref = "test-ext-junit"}
-test-expressoCore = {module = "androidx.test.espresso:espresso-core", version.ref = "test-expresso-core"}
+test-junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5" }
+test-junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5" }
+test-junit-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit5" }
+test-mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+
 
 androidx-navigationFragment = {module = "androidx.navigation:navigation-fragment", version.ref = "androidx-navigation"}
 androidx-navigationUi = {module = "androidx.navigation:navigation-ui", version.ref = "androidx-navigation"}

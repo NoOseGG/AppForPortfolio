@@ -46,9 +46,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.google.material)
     implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.test.junit)
-    androidTestImplementation(libs.test.extJunit)
-    androidTestImplementation(libs.test.expressoCore)
 
     implementation(libs.androidx.navigationFragment)
     implementation(libs.androidx.navigationUi)
